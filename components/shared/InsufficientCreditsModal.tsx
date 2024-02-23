@@ -6,4 +6,4 @@ const InsufficientCreditsModal = () => {
   )
 }
 
-export default InsufficientCreditsModal
+export default InsufficientCreditsModal;
