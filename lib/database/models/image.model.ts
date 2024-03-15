@@ -12,6 +12,8 @@ export interface IImage extends Document {
   aspectRatio?: string;
   color?: string;
   prompt?: string;
+  from?: string;
+  to?: string;
   author: {
     _id: string;
     firstName: string;
@@ -33,6 +35,8 @@ const ImageSchema = new Schema({
   aspectRatio: { type: String },
   color: { type: String },
   prompt: { type: String },
+  from: { type: String },
+  to: { type: String },
   author: { type: Schema.Types.ObjectId, ref: "User" },
   createdAt: { type: Date, default: Date.now },
   updatedAt: { type: Date, default: Date.now },

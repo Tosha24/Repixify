@@ -46,6 +46,8 @@ export const formSchema = z.object({
   aspectRatio: z.string().optional(),
   color: z.string().optional(),
   prompt: z.string().optional(),
+  from: z.string().optional(),
+  to: z.string().optional(),
   publicId: z.string(),
 });
 
@@ -75,6 +77,8 @@ const TransformationForm = ({
           color: data?.color,
           prompt: data?.prompt,
           publicId: data?.publicId,
+          from: data?.from,
+          to: data?.to,
         }
       : defaultValues;
 
@@ -108,6 +112,8 @@ const TransformationForm = ({
         aspectRatio: values.aspectRatio,
         prompt: values.prompt,
         color: values.color,
+        from: values.from,
+        to: values.to,
       };
 
       if (action === "Add") {
@@ -180,7 +186,7 @@ const TransformationForm = ({
         ...prevState,
         [type]: {
           ...prevState?.[type],
-          [fieldName === "prompt" ? "prompt" : "to"]: value,
+          [fieldName === "from" ? "from" : fieldName === "prompt" ? "prompt" : "to"]: value,
         },
       }));
     }, 1000)();
@@ -299,6 +305,54 @@ const TransformationForm = ({
             )}
           </div>
         )}
+
+        {
+          type === "replace" && (
+            <div className="prompt-field">
+              <CustomField
+                control={form.control}
+                name="from"
+                formLabel="Object to replace"
+                className="w-full"
+                render={({ field }: { field: any }) => (
+                  <Input
+                    value={field.value}
+                    className="input-field"
+                    onChange={(e) =>
+                      onInputChangeHandler(
+                        "from",
+                        e.target.value,
+                        type,
+                        field.onChange
+                      )
+                    }
+                  />
+                )}
+              />
+
+              <CustomField
+                control={form.control}
+                name="to"
+                formLabel="Replacement Object"
+                className="w-full"
+                render={({ field }: { field: any }) => (
+                  <Input
+                    value={field.value}
+                    className="input-field"
+                    onChange={(e) =>
+                      onInputChangeHandler(
+                        "to",
+                        e.target.value,
+                        type,
+                        field.onChange
+                      )
+                    }
+                  />
+                )}
+              />
+            </div>
+          )
+        }
 
         <div className="media-uploader-field">
           <CustomField

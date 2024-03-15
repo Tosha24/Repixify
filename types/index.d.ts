@@ -31,6 +31,8 @@ declare type AddImageParams = {
     aspectRatio: string | undefined;
     prompt: string | undefined;
     color: string | undefined;
+    from: string | undefined;
+    to: string | undefined;
   };
   userId: string;
   path: string;
@@ -50,6 +52,8 @@ declare type UpdateImageParams = {
     aspectRatio: string | undefined;
     prompt: string | undefined;
     color: string | undefined;
+    from: string | undefined;
+    to: string | undefined;
   };
   userId: string;
   path: string;
@@ -69,6 +73,11 @@ declare type Transformations = {
     multiple?: boolean;
   };
   removeBackground?: boolean;
+  replace?: {
+    from: string;
+    to: string;
+    preserveGeometry?: boolean;
+  }
 };
 
 // ====== TRANSACTION PARAMS
@@ -93,6 +102,7 @@ declare type TransformationTypeKey =
   | "fill"
   | "remove"
   | "recolor"
+  | "replace"
   | "removeBackground";
 
 // ====== URL QUERY PARAMS

@@ -30,6 +30,11 @@ export const navLinks = [
     icon: "/assets/icons/camera.svg",
   },
   {
+    label: "Object Replace",
+    route: "/transformations/add/replace",
+    icon: "/assets/icons/replace.svg",
+  },
+  {
     label: "Profile",
     route: "/profile",
     icon: "/assets/icons/profile.svg",
@@ -158,6 +163,15 @@ export const transformationTypes = {
       recolor: { prompt: "", to: "", multiple: true },
     },
     icon: "filter.svg",
+  },
+  replace: {
+    type: "replace",
+    title: "Object Replace",
+    subTitle: "Identify and replace objects from the image",
+    config: {
+      replace: { from: "", to: "", preserveGeometry: true },
+    },
+    icon: "replace.svg",
   },
 };
 
