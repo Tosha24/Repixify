@@ -11,9 +11,12 @@ const IBMPlex = IBM_Plex_Sans({
   variable: "--font-ibm-plex",
 });
 
-export const metadata: Metadata = {
-  title: "Repixify",
-  description: "AI-powered image editing tool",
+export const metadata : Metadata = {
+  title: {
+    default: "Repixify",
+    template: "%s | Repixify",
+  },
+  description: "Unleash your creative vision with Repixify",
 };
 
 export default function RootLayout({

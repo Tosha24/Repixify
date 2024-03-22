@@ -3,7 +3,18 @@ import TransformationForm from "@/components/shared/TransformationForm";
 import { transformationTypes } from "@/constants";
 import { getUserById } from "@/lib/actions/user.actions";
 import { auth } from "@clerk/nextjs";
+import { Metadata } from "next";
 import { redirect } from "next/navigation";
+
+export async function generateMetadata({
+  params: { type },
+}: SearchParamProps): Promise<Metadata> {
+  const transformation = transformationTypes[type];
+  return {
+    title: transformation.title,
+    description: transformation.subTitle,
+  };
+}
 
 const AddTransformationTypePage = async ({
   params: { type },
