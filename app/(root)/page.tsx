@@ -1,46 +1,40 @@
-import { Collection } from "@/components/shared/Collection";
-import { navLinks } from "@/constants";
-import { getAllImages } from "@/lib/actions/image.actions";
-import Image from "next/image";
-import Link from "next/link";
+import Navbar from "@/components/shared/Navbar";
+import { redirect } from "next/navigation";
+import React from "react";
+import { FaLongArrowAltRight } from "react-icons/fa";
 
-const Home = async ({ searchParams }: SearchParamProps) => {
-  const page = Number(searchParams?.page) || 1;
-  const searchQuery = (searchParams?.query as string) || "";
-
-  const images = await getAllImages({ page, searchQuery });
-
+const Home = () => {
   return (
-    <>
-      <section className="home">
-        <h1 className="home-heading">
-          Unleash Your Creative Vision with Repixify
-        </h1>
-        <ul className="flex-center w-full gap-20">
-          {navLinks.slice(1, 7).map((link) => (
-            <Link
-              key={link.route}
-              href={link.route}
-              className="flex-center flex-col gap-2"
-            >
-              <li className="flex-center w-fit rounded-full bg-white p-4">
-                <Image src={link.icon} alt="image" width={24} height={24} />
-              </li>
-              <p className="p-14-medium text-center text-white">{link.label}</p>
-            </Link>
-          ))}
-        </ul>
-      </section>
+    <div className="w-full">
+      <Navbar />
+      <div
+        style={{
+          background: 'url("/bg.svg")',
+          backgroundSize: "cover",
+          backgroundAttachment: "fixed", // This keeps the background stationary as the user scrolls
+        }}
+        className="min-h-screen flex flex-col justify-center items-center text-white"
+      >
+        <div className=" flex flex-col justify-center items-center">
+          <h1 className=" text-6xl text-center font-bold mb-4 font text-yellow-200/90 max-w-[900px]">
+            From ordinary to extraordinary in seconds.
+          </h1>
+          <p className="text-center text-white max-w-[900px] text-3xl font-bold">
+            Transform, enhance, create.{" "}
+            <span className="text-lime-100 font-extrabold text-4xl">
+              Welcome to Repixify✨
+            </span>
+          </p>
+        </div>
 
-      <section className="sm:mt-12">
-        <Collection
-          hasSearch={true}
-          images={images?.data}
-          totalPages={images?.totalPage}
-          page={page}
-        />
-      </section>
-    </>
+        <button className=" bg-white text-black hover:bg-white/60 transition duration-300 ease-in-out p-3 mt-4 rounded-[8px] font-bold text-xl">
+          <a href="/sign-up">Get Started</a>
+          <span className="ml-2">
+            <FaLongArrowAltRight className="inline" />
+          </span>
+        </button>
+      </div>
+    </div>
   );
 };
 

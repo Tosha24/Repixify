@@ -1,39 +1,21 @@
+/* import poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+body{
+  background-image: url('/assets/images/bg.svg');
+  background-size:cover;
+  background-repeat: no-repeat;
+  font-family: 'Poppins', sans-serif;
+  
+  /* background: #000; */
+}
+
 @layer base {
-  :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
-    --radius: 0.5rem;
-  }
+  
 
   .dark {
     --background: 222.2 84% 4.9%;
@@ -70,22 +52,15 @@
   * {
     @apply border-border;
   }
-  body {
-    @apply bg-background text-foreground;
-  }
+ 
+  
 }
 
 .auth {
-  @apply flex-center min-h-screen w-full bg-orange-100;
+  @apply flex-center min-h-screen w-full bg-purple-100
 }
 
-.root {
-  @apply flex min-h-screen w-full flex-col bg-white lg:flex-row;
-}
 
-.root-container {
-  @apply mt-16 flex-1 overflow-auto py-8 lg:mt-0 lg:max-h-screen lg:py-10;
-}
 
 /* ========================================== TAILWIND STYLES */
 @layer utilities {
@@ -221,6 +196,7 @@
   /* Home Page */
   .home {
     @apply sm:flex-center hidden h-72 flex-col gap-4 rounded-[20px] border bg-banner bg-cover bg-no-repeat p-10 shadow-inner;
+    
   }
 
   .home-heading {
@@ -324,11 +300,11 @@
   }
 
   .sidebar-nav_elements {
-    @apply hidden w-full flex-col items-start gap-1 md:flex;
+    @apply hidden w-full flex-col items-start gap-2 md:flex;
   }
 
   .sidebar-nav_element {
-    @apply h-full flex-center p-16-semibold w-full whitespace-nowrap rounded-full bg-cover transition-all hover:bg-purple-100 hover:shadow-inner;
+    @apply flex-center p-16-semibold w-full whitespace-nowrap rounded-full bg-cover  transition-all hover:bg-purple-100 hover:shadow-inner;
   }
 
   .sidebar-link {

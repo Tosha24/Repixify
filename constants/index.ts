@@ -32,7 +32,7 @@ export const navLinks = [
   {
     label: "Object Replace",
     route: "/transformations/add/replace",
-    icon: "/assets/icons/replace.svg",
+    icon: "/assets/icons/image.svg",
   },
   {
     label: "Profile",
@@ -127,7 +127,7 @@ export const plans = [
 export const transformationTypes = {
   restore: {
     type: "restore",
-    title: "Image Restore",
+    title: "Restore Image",
     subTitle: "Refine images by removing noise and imperfections",
     config: { restore: true },
     icon: "image.svg",
@@ -168,9 +168,7 @@ export const transformationTypes = {
     type: "replace",
     title: "Object Replace",
     subTitle: "Identify and replace objects from the image",
-    config: {
-      replace: { from: "", to: "", preserveGeometry: true },
-    },
+    config: { replace: { from: "", to: "", preserveGeometry: true } },
     icon: "replace.svg",
   },
 };
@@ -203,5 +201,50 @@ export const defaultValues = {
   prompt: "",
   publicId: "",
 };
+
+export type Component = {
+  title: string;
+  tools: {
+    name: string;
+    href: string;
+  }[];
+};
+
+export const components: Component[] = [
+  {
+    title: "Alert Dialog",
+    tools: [
+      { name: "Image Caption Generator", href: "/caption-generator" },
+      { name: "Photo Enhancer", href: "/photo-enhancer" },
+      { name: "Image Deblur", href: "/image-deblur" },
+      { name: "Image Colorizer", href: "/image-colorizer" },
+      { name: "Image Restoration", href: "/image-restoration" },
+    ],
+  },
+  {
+    title: "Creative Tools",
+    tools: [
+      { name: "Face Swap", href: "/face-swap" },
+      { name: "Emoji Translator", href: "/emoji-translator" },
+      { name: "Generative Fill", href: "/add/fill" },
+      { name: "Object Recolor", href: "/add/recolor" },
+    ],
+  },
+  {
+    title: "Object manipulation",
+    tools: [
+      { name: "Object Remove", href: "/add/remove" },
+      { name: "Object Replace", href: "/add/replace" },
+      { name: "Background Remove", href: "/add/removeBackground" },
+    ],
+  },
+  {
+    title: "Content Generation",
+    tools: [
+      { name: "Instagram bio generator", href: "/ig-bio" },
+      { name: "Twitter bio generator", href: "/twitter-bio" },
+    ],
+  },
+];
 
 export const creditFee = -1;
