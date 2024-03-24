@@ -214,7 +214,7 @@ export const components: Component[] = [
   {
     title: "Alert Dialog",
     tools: [
-      { name: "Image Caption Generator", href: "/caption-generator" },
+      { name: "Image Caption Generator", href: "/tools/caption" },
       { name: "Photo Enhancer", href: "/photo-enhancer" },
       { name: "Image Deblur", href: "/image-deblur" },
       { name: "Image Colorizer", href: "/image-colorizer" },
@@ -225,7 +225,7 @@ export const components: Component[] = [
     title: "Creative Tools",
     tools: [
       { name: "Face Swap", href: "/face-swap" },
-      { name: "Emoji Translator", href: "/emoji-translator" },
+      { name: "Emoji Translator", href: "/tools/emoji-translator" },
       { name: "Generative Fill", href: "/add/fill" },
       { name: "Object Recolor", href: "/add/recolor" },
     ],
@@ -241,8 +241,8 @@ export const components: Component[] = [
   {
     title: "Content Generation",
     tools: [
-      { name: "Instagram bio generator", href: "/ig-bio" },
-      { name: "Twitter bio generator", href: "/twitter-bio" },
+      { name: "Instagram bio generator", href: "/tools/instagram-bio" },
+      { name: "Twitter bio generator", href: "/tools/twitter-bio" },
     ],
   },
 ];

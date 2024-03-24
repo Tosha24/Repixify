@@ -41,7 +41,7 @@ const ImageCaptionGenerator: React.FC = () => {
         setCopySuccessIndex(index);
         toast({
           title: "Caption copied to clipboard",
-          duration: 5000,
+          duration: 3000,
           className: "success-toast",
         });
       },
@@ -49,7 +49,7 @@ const ImageCaptionGenerator: React.FC = () => {
         toast({
           title: "Cannot copy to clipboard",
           description: "Try again",
-          duration: 5000,
+          duration: 3000,
           className: "error-toast",
         })
     );
@@ -61,6 +61,11 @@ const ImageCaptionGenerator: React.FC = () => {
       const reader = new FileReader();
       reader.onload = () => {
         setUploadedImage(reader.result);
+        toast({
+          title: "Image uploaded successfully!",
+          duration: 3000,
+          className: "success-toast",
+        });
       };
       reader.readAsDataURL(file);
       setSelectedFile(file); // Store the selected file for later use
@@ -124,7 +129,7 @@ const ImageCaptionGenerator: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col max-h-[100vh] mt-14 gap-10">
+    <div className="flex flex-col m-7 p-6 gap-10 bg-slate-800/50">
       <div className="flex justify-center items-center flex-col mt-5">
         <h1 className="text-4xl font-bold text-yellow-400/80 mb-4">
           Image Caption Generator
@@ -149,14 +154,26 @@ const ImageCaptionGenerator: React.FC = () => {
             </div>
           )}
           {uploadedImage && (
-            <Image
-              width={384}
-              height={384}
-              src={uploadedImage as string}
-              alt="Uploaded"
-              className="object-cover rounded-lg"
-              layout="responsive"
-            />
+            <div className="w-fit">
+              <Image
+                width={384}
+                height={384}
+                src={uploadedImage as string}
+                alt="Uploaded"
+                className="object-cover rounded-lg h-96 w-96"
+              />
+              <div
+                className="w-full text-right"
+                onClick={() => setUploadedImage(null)}
+              >
+                <span
+                  className="cursor-pointer underline text-green-50 hover:text-green-200"
+                  onClick={() => setUploadedImage(null)}
+                >
+                  Remove Image
+                </span>
+              </div>
+            </div>
           )}
         </div>
         <div className="flex-1 max-w-[400px] w-full flex flex-col gap-3 items-center justify-center">
@@ -164,30 +181,132 @@ const ImageCaptionGenerator: React.FC = () => {
             <SelectTrigger className="w-full bg-slate-300 text-black">
               <SelectValue placeholder="Select Tone" />
             </SelectTrigger>
-            <SelectContent className="bg-slate-300">
-              <SelectItem value="funny" className="bg-gray-100">
-                Funny
+            <SelectContent className="bg-slate-300 cursor-pointer">
+              <SelectItem value="funny" className="bg-gray-100 cursor-pointer">
+                Funny 😂
               </SelectItem>
-              <SelectItem value="serious" className="bg-gray-100">
-                Serious
+              <SelectItem
+                value="serious"
+                className="bg-gray-100 cursor-pointer"
+              >
+                Serious 😐
               </SelectItem>
-              <SelectItem value="happy" className="bg-gray-100">
-                Happy
+              <SelectItem value="happy" className="bg-gray-100 cursor-pointer">
+                Happy 😊
               </SelectItem>
-              <SelectItem value="excited" className="bg-gray-100">
-                Excited
+              <SelectItem
+                value="excited"
+                className="bg-gray-100 cursor-pointer"
+              >
+                Excited 😃
               </SelectItem>
-              <SelectItem value="angry" className="bg-gray-100">
-                Angry
+              <SelectItem value="angry" className="bg-gray-100 cursor-pointer">
+                Angry 😡
               </SelectItem>
-              <SelectItem value="sad" className="bg-gray-100">
-                Sad
+              <SelectItem value="sad" className="bg-gray-100 cursor-pointer">
+                Sad 😢
               </SelectItem>
-              <SelectItem value="scary" className="bg-gray-100">
-                Scary
+              <SelectItem value="scary" className="bg-gray-100 cursor-pointer">
+                Scary 😱
               </SelectItem>
-              <SelectItem value="romantic" className="bg-gray-100">
-                Romantic
+              <SelectItem
+                value="romantic"
+                className="bg-gray-100 cursor-pointer"
+              >
+                Romantic 😍
+              </SelectItem>
+              <SelectItem
+                value="mysterious"
+                className="bg-gray-100 cursor-pointer"
+              >
+                Mysterious 🕵️
+              </SelectItem>
+              <SelectItem
+                value="inspiring"
+                className="bg-gray-100 cursor-pointer"
+              >
+                Inspiring 🌟
+              </SelectItem>
+              <SelectItem
+                value="informative"
+                className="bg-gray-100 cursor-pointer"
+              >
+                Informative 📚
+              </SelectItem>
+              <SelectItem
+                value="persuasive"
+                className="bg-gray-100 cursor-pointer"
+              >
+                Persuasive 🗣
+              </SelectItem>
+              <SelectItem
+                value="insightful"
+                className="bg-gray-100 cursor-pointer"
+              >
+                Insightful 🤔
+              </SelectItem>
+              <SelectItem
+                value="emotional"
+                className="bg-gray-100 cursor-pointer"
+              >
+                Emotional 😢
+              </SelectItem>
+              <SelectItem
+                value="dramatic"
+                className="bg-gray-100 cursor-pointer"
+              >
+                Dramatic 🎭
+              </SelectItem>
+              <SelectItem
+                value="humorous"
+                className="bg-gray-100 cursor-pointer"
+              >
+                Humorous 😆
+              </SelectItem>
+              <SelectItem value="ironic" className="bg-gray-100 cursor-pointer">
+                Ironic 😏
+              </SelectItem>
+              <SelectItem value="witty" className="bg-gray-100 cursor-pointer">
+                Witty 😏
+              </SelectItem>
+              <SelectItem
+                value="cheerful"
+                className="bg-gray-100 cursor-pointer"
+              >
+                Cheerful 😄
+              </SelectItem>
+              <SelectItem
+                value="playful"
+                className="bg-gray-100 cursor-pointer"
+              >
+                Playful 😜
+              </SelectItem>
+              <SelectItem
+                value="optimistic"
+                className="bg-gray-100 cursor-pointer"
+              >
+                Optimistic 😌
+              </SelectItem>
+              <SelectItem
+                value="pessimistic"
+                className="bg-gray-100 cursor-pointer"
+              >
+                Pessimistic 😞
+              </SelectItem>
+              <SelectItem
+                value="hopeful"
+                className="bg-gray-100 cursor-pointer"
+              >
+                Hopeful 🙏
+              </SelectItem>
+              <SelectItem value="dreamy" className="bg-gray-100 cursor-pointer">
+                Dreamy 😌
+              </SelectItem>
+              <SelectItem
+                value="magical"
+                className="bg-gray-100 cursor-pointer"
+              >
+                Magical 🧙
               </SelectItem>
             </SelectContent>
           </Select>
@@ -199,34 +318,34 @@ const ImageCaptionGenerator: React.FC = () => {
           >
             {loader ? <Loader /> : "Generate Caption"}
           </button>
-          <div
-            className={`${
-              outputText ? "w-full" : "hidden"
-            } mt-4 text-[#CCD6F6] bg-[#112240] p-4 rounded-xl`}
-          >
-            <h2 className="text-xl font-bold text-[#64FFDA] mb-2">
-              Generated Caption:
-            </h2>
-            {captions.map((caption, index) => (
-              <div
-                key={index}
-                className="flex justify-between items-center my-2 p-2 rounded-xl bg-[#133267]"
-              >
-                <p className="text-[#CCD6F6]">{caption}</p>
-                <button
-                  className="flex items-center justify-center p-1 rounded hover:bg-[#64FFDA] hover:text-[#0A192F]"
-                  onClick={() => copyToClipboard(caption, index)}
-                >
-                  {copySuccessIndex === index ? (
-                    <IoMdDoneAll className="text-[#64FFDA]" />
-                  ) : (
-                    <MdOutlineContentCopy />
-                  )}
-                </button>
-              </div>
-            ))}
-          </div>
         </div>
+      </div>
+      <div
+        className={`${
+          outputText ? "w-[80vw] md:w-[70vw] flex flex-col mx-auto" : "hidden"
+        } mt-4 text-[#CCD6F6] bg-[#112240] p-4 rounded-xl`}
+      >
+        <h2 className="text-xl font-bold text-[#64FFDA] mb-2">
+          Generated Caption:
+        </h2>
+        {captions.map((caption, index) => (
+          <div
+            key={index}
+            className="flex justify-between items-center my-2 p-2 rounded-xl bg-[#133267]"
+          >
+            <p className="text-[#CCD6F6]">{caption}</p>
+            <button
+              className="flex items-center justify-center p-1 rounded"
+              onClick={() => copyToClipboard(caption, index)}
+            >
+              {copySuccessIndex === index ? (
+                <IoMdDoneAll className="text-[#64FFDA]" />
+              ) : (
+                <MdOutlineContentCopy />
+              )}
+            </button>
+          </div>
+        ))}
       </div>
     </div>
   );
