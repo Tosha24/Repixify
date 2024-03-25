@@ -16,18 +16,18 @@ const Home = () => {
         className="min-h-screen flex flex-col justify-center items-center text-white"
       >
         <div className=" flex flex-col justify-center items-center">
-          <h1 className=" text-6xl text-center font-bold mb-4 font text-yellow-200/90 max-w-[900px]">
+          <h1 className=" text-6xl text-center font-semibold mb-4 font text-lime-200 max-w-[900px]">
             From ordinary to extraordinary in seconds.
           </h1>
-          <p className="text-center text-white max-w-[900px] text-3xl font-bold">
+          <p className="text-center text-lime-50 max-w-[900px] text-3xl">
             Transform, enhance, create.{" "}
-            <span className="text-lime-100 font-extrabold text-4xl">
+            <span className="text-slate-200/20 font-medium text-4xl">
               Welcome to Repixify✨
             </span>
           </p>
         </div>
 
-        <button className=" bg-white text-black hover:bg-white/60 transition duration-300 ease-in-out p-3 mt-4 rounded-[8px] font-bold text-xl">
+        <button className=" bg-btnColor text-btnText hover:bg-btnHover transition duration-300 ease-in-out p-3 mt-4 rounded-[8px] font-bold text-xl">
           <a href="/sign-up">Get Started</a>
           <span className="ml-2">
             <FaLongArrowAltRight className="inline" />

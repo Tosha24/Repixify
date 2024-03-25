@@ -15,23 +15,23 @@ import ListItem from "./ListItem";
 
 const Navbar = () => {
   return (
-    <nav className="bg-red-100 fixed p-4 flex justify-between items-center w-full shadow-md">
+    <nav className="bg-slate-800/30 fixed p-4 flex justify-between items-center w-full shadow-md">
       <div
         className="cursor-pointer"
         onClick={() => window.location.replace("/")}
       >
-        <span className="text-2xl md:text-4xl font-extrabold text-black">
+        <span className="text-2xl md:text-4xl font-extrabold text-lime-50">
           RePixify
         </span>
       </div>
-      <div className="flex-grow flex justify-center items-center">
+      <div className="flex-grow flex justify-center items-center text-lime-50">
         <NavigationMenu>
           <NavigationMenuList className="flex space-x-4 md:space-x-8">
             <NavigationMenuItem>
               <NavigationMenuTrigger className="text-lg">
                 Features
               </NavigationMenuTrigger>
-              <NavigationMenuContent className="bg-green-100">
+              <NavigationMenuContent className="bg-slate-300 text-black">
                 <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
                   {components.map((component) => (
                     <ListItem
@@ -97,7 +97,7 @@ const Navbar = () => {
       </div>
       <div>
         <a href="/sign-in">
-          <button className="text-blue-900 tracking-widest bg-yellow-500 hover:bg-yellow-600 rounded-lg text-md px-5 py-2 font-bold transition-colors duration-150">
+          <button className="text-btnText tracking-widest bg-btnColor hover:bg-btnHover rounded-3xl text-md px-5 py-2 font-bold transition-colors duration-150">
             Login
           </button>
         </a>

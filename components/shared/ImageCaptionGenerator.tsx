@@ -129,14 +129,14 @@ const ImageCaptionGenerator: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col m-7 p-6 gap-10 bg-slate-800/50">
+    <div className="flex flex-col m-7 p-6 gap-10 bg-slate-800/50 min-h-[90vh]">
       <div className="flex justify-center items-center flex-col mt-5">
-        <h1 className="text-4xl font-bold text-yellow-400/80 mb-4">
+        <h1 className="text-4xl font-bold text-lime-200 mb-4">
           Image Caption Generator
         </h1>
-        <p className="text-lime-100 text-center max-w-[900px]">
+        <p className="text-lime-50 text-center max-w-[900px]">
           Generate captions for images using AI. Upload an image and get a
-          caption generated for it.
+          caption generated for it. 
         </p>
       </div>
       <div className="flex flex-col md:flex-row justify-center items-center p-5 gap-5">
@@ -178,7 +178,7 @@ const ImageCaptionGenerator: React.FC = () => {
         </div>
         <div className="flex-1 max-w-[400px] w-full flex flex-col gap-3 items-center justify-center">
           <Select onValueChange={onSelectChangeHandler}>
-            <SelectTrigger className="w-full bg-slate-300 text-black">
+            <SelectTrigger className="w-full bg-slate-300 text-black rounded">
               <SelectValue placeholder="Select Tone" />
             </SelectTrigger>
             <SelectContent className="bg-slate-300 cursor-pointer">

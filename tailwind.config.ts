@@ -18,6 +18,11 @@ module.exports = {
     },
     extend: {
       colors: {
+        btnColor: "#64FFDA",
+        btnText: "#0A192F",
+        btnHover: "#45dcb9",
+        titleText: "#d9f99d",
+        subTitleText: "#f7fee7",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
